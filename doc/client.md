@@ -10,33 +10,15 @@ The following parameters are configurable for the API Client:
 | httpClientOptions | [`Partial<HttpClientOptions>`](../doc/http-client-options.md) | Stable configurable http client options. |
 | unstableHttpClientOptions | `any` | Unstable configurable http client options. |
 | logging | [`PartialLoggingOptions`](../doc/partial-logging-options.md) | Logging Configuration to enable logging |
-| petstoreAuthCredentials | [`PetstoreAuthCredentials`](auth/oauth-2-implicit-grant.md) | The credential object for petstoreAuth |
-| apiKeyCredentials | [`ApiKeyCredentials`](auth/custom-header-signature.md) | The credential object for apiKey |
 
 The API client can be initialized as follows:
 
 ## Code-Based Client Initialization
 
 ```ts
-import {
-  Client,
-  Environment,
-  LogLevel,
-  OauthScopePetstoreAuth,
-} from 'chainlink-apimatic-sdk';
+import { Client, Environment, LogLevel } from 'chainlink-apimatic-sdk';
 
 const client = new Client({
-  petstoreAuthCredentials: {
-    oauthClientId: 'OAuthClientId',
-    oauthRedirectUri: 'OAuthRedirectUri',
-    oauthScopes: [
-      OauthScopePetstoreAuth.Writepets,
-      OauthScopePetstoreAuth.Readpets
-    ]
-  },
-  apiKeyCredentials: {
-    'api_key': 'api_key'
-  },
   timeout: 30000,
   environment: Environment.Production,
   logging: {
